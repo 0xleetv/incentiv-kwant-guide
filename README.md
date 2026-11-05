@@ -56,9 +56,13 @@ In the space, ask:
 
 Expected: the network is Incentiv Mainnet and the wallet address matches the one setup showed. Both calls are read only, so they run without a card under kwant's default approval mode, and every call shows on the bot's reply.
 
+## Two addresses, one agent
+
+Your agent wallet carries two addresses. The owner EOA is the signing address behind the smart account: plain EVM data shows up there, balances and plain transaction history, and it is the address for plain interactions outside the smart account flow. The smart account is the ERC 4337 wallet the agent works through: transfers, swaps and bundled operations run there, signed by the owner key, which never leaves your machine. Ask the bot for its wallet details and it can read both.
+
 ## Fund the wallet
 
-Copy the smart account address shown by setup, confirm you are on Incentiv Mainnet, and fund it within the holdings limits you chose. Keep permitted gas tokens available. The first transaction also deploys the account. A quote is never permission to spend.
+The official docs point funding at the smart account address shown by setup, and it can receive before deployment. Confirm you are on Incentiv Mainnet and fund it within the holdings limits you chose. If you fund through the owner EOA first, have the agent move the funds into the smart account before it starts working with them. Keep permitted gas tokens available. The first transaction also deploys the account. A quote is never permission to spend.
 
 ## Two safety nets, stacked
 
